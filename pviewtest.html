@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pviewtest</title>
+</head>
+<body>
+<a href="uhome"> <input type="submit" name="uhome" value="HOME"></a><br><br>
+
+
+<div style="text-align:center">
+    <h1 style="text-align:center">View Test Details</h1>
+
+</div>
+    <table border="1" align="center">
+    <tr>
+        <th>Test Name</th>
+        <th>Cost</th>
+        <th>Description</th>
+
+        </tr>
+    <tr>
+
+            {% for i in t %}
+            <td>{{i.name}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.description}}</td>
+
+    </tr>
+
+            {% endfor %}
+
+</table>
+
+</body>
+</html>

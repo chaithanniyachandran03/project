@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+</head>
+<body>
+<form method="POST" action="nregister">
+    {% csrf_token %}
+    <div style="text-align:center">
+        <h1>Registration</h1>
+        Name:<input type="text" name="name"><br><br><br>
+        Address:<input type="text" name="address"><br><br><br>
+        Date of Birth:<input type="date" name="dob"><br><br><br>
+        Gender: F <input type="radio" value="F" name="gender">
+                M<input type="radio" value="M" name="gender"><br><br><br>
+        Phone Number:<input type="number" name="phone"><br><br><br>
+        Email id:<input type="email" name="email"><br><br><br>
+        Password:<input type="password" name="password"><br><br><br>
+        Confirm Password:<input type="password" name="cpassword"><br><br><br>
+
+    <input type="submit" name="submit" value="Register">
+
+
+</div>
+</form>
+</body>
+</html>

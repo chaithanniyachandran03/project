@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>employeedetails</title>
+</head>
+<body>
+<a href="home"> <input type="submit" name="home" value="HOME"></a><br><br>
+<div style="text-align:center">
+    <h1 >View Employee Details</h1>
+
+<table border="1" align="center">
+    <tr>
+        <th>Employee Name</th>
+        <th>Photo</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Phone Number</th>
+        <th>Email ID</th>
+        <th>Edit</th>
+        </tr>
+    <tr>
+
+            {% for i in d %}
+        <form action = "editemployee" method="POST">
+                {% csrf_token %}
+            <td>{{i.name}}</td>
+            <td><img src="{{ i.photo.url }}" height=50 width=50></td>
+            <td>{{i.address}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email_id}}</td>
+            <input type="hidden" name="id" value="{{ i.id }}">
+                <td> <button type="submit"  name="edit">Edit </button></td>
+
+    </tr>
+
+            {% endfor %}
+
+</table>
+</div>
+</body>
+</html>

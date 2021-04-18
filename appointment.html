@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointment</title>
+</head>
+<body>
+<a href="uhome"> <input type="submit" name="uhome" value="HOME"></a><br><br>
+<form method="POST" action="bookappointment"enctype="multipart/form-data">
+    {% csrf_token %}
+<div style="text-align:center">
+    <h1 style="text-align:center">Book Appointment</h1>
+        Patient Name:<input type="text" name="name"><br><br><br>
+        Date of Birth:<input type="date" name="dob"><br><br><br>
+        Gender: F <input type="radio" value="F" name="gender">
+                M<input type="radio" value="M" name="gender"><br><br><br>
+        Phone Number:<input type="number" name="phone"><br><br><br>
+        Email id:<input type="email" name="email"><br><br><br>
+        Appointment Date&Time:<input type="datetime-local" name="datetime"><br><br><br>
+        Prescription if any:<input type="file" name="file"><br><br>
+    <h3 style="color:red;">Select Test</h3>
+    <table border="1" align="center">
+        <tr>
+        <th>Test Name</th>
+        <th>Cost</th>
+        <th>Description</th>
+            <th>Select</th>
+
+        </tr>
+    <tr>
+
+            {% for i in d %}
+            <td>{{i.name}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.description}}</td>
+            <input type="hidden" name="id" value="">
+                <td> <input type="checkbox"   value="{{ i.id }}" name="checks[]"> </td>
+
+
+    </tr>
+
+            {% endfor %}
+    </table><br><br>
+    <input type="submit" name="book" value="Book">
+
+</div>
+</form>
+</body>
+</html>

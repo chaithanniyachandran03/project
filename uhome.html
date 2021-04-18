@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>patientpage</title>
+</head>
+<body>
+<h1>patient page</h1>
+
+<h1 style="text-align:center">Diagnostic Lab Reporting System</h1>
+<div style="text-align:center">
+  <!--  <a href="pviewtest"><input type="submit" name="pviewtest" value="View Test Detail"></a>  -->
+    <a href="appointment"><input type="submit" name="appointment" value="Book Appointment"></a>
+    <a href="appohistory"><input type="submit" name="appohistory" value="Appointment History"></a>
+    <a href="regusers"><input type="submit" name="regusers" value="Medical Report"></a>
+
+</div>
+<div style="padding-left:180px">
+Search here.. <form action="npviewtest" method="POST">
+    {% csrf_token %}
+    <select name="id" style="width:250px">{% for i in t %}
+        <option value="{{i.id}}">{{i.name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="submit" value="Search"><br><br><br><br>
+    </form>
+</div>
+</body>
+</html>

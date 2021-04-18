@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appohistory</title>
+</head>
+<body>
+<div style="text-align:center">
+    <h1>Appointment History</h1>
+   <a href="uhome"> <input type="submit" name="uhome" value="HOME"></a><br><br>
+<table border="1" align="center">
+    <tr>
+        <th>Test Name</th>
+        <th>Test Cost</th>
+        <th>Description</th>
+        <th>Sample Type</th>
+        <th>Edit</th>
+        </tr>
+    <tr>
+
+            {% for i in d %}
+            <form action = "edit" method="POST">
+                {% csrf_token %}
+
+            <td>{{i.name}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.sample}}</td>
+            <input type="hidden" name="id" value="{{ i.id }}">
+                <td> <button type="submit"  name="edit">Edit </button></td>
+
+
+
+    </form>
+    </tr>
+
+            {% endfor %}
+
+</table>
+</div>
+</body>
+</html>

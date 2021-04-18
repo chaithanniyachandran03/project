@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regusers</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>patientdetails</title>
+</head>
+<body>
+<a href="home"> <input type="submit" name="home" value="HOME"></a><br><br>
+<div style="text-align:center">
+    <h1 >View Patient Details</h1>
+
+<table border="1" align="center">
+    <tr>
+        <th>Patient Name</th>
+        <th>Address</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Phone Number</th>
+        <th>Email ID</th>
+
+        </tr>
+    <tr>
+
+            {% for i in u %}
+            <td>{{i.name}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.dob}}</td>
+            <td>{{i.gender}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email_id}}</td>
+
+
+    </tr>
+
+            {% endfor %}
+
+</table>
+</div>
+</body>
+</html>
+
