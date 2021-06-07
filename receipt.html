@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function pdf()
+        {
+        print()
+        }
+    </script>
+    <title>receipt</title>
+    <style>
+table, td, th {
+  border: 3px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body><br>
+<div style="text-align:center">
+
+    <h3 style="color:red";>Receipt</h3>
+</div><br>
+
+<table border="1" align="center">
+ <!--   <tr>
+
+       <th>Email</th>
+        <th>Amount</th>
+        <th>Order id</th>
+        <th>Razorpay payment id</th>
+         <th>Status</th>
+        <th>Transaction Date</th>
+
+
+
+
+    </tr> -->
+
+
+            {% for i in d %}
+
+            <form method="POST" action="receipt">
+               {% csrf_token %}
+                <tr>
+                <td>Email</td>
+                <td>{{i.name}}</td>
+                </tr>
+
+                <tr>
+                <td>Amount</td>
+                <td>{{i.amount}}</td>
+                </tr>
+
+                 <tr>
+                <td>Order id</td>
+                <td>{{i.order_id}}</td>
+                </tr>
+
+                <tr>
+                <td>Razorpay Payment id</td>
+                <td>{{i.razorpay_payment_id}}</td>
+                </tr>
+                 <tr>
+            <td>Payment Status</td>
+            <td>paid</td>
+                 </tr>
+
+                <tr>
+                <td>Transaction Date</td>
+                    <td>{{i.apd}}</td>
+
+               </tr>
+            </form>
+
+
+            {% endfor %}
+
+</table>
+        <br><br>
+        <div style="text-align:center">
+        <input type="submit" onclick="pdf()" value="PRINT">
+        </div>
+</div>
+</body>
+</html>

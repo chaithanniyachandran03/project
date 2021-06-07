@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>payment</title>
+</head>
+
+<body>
+<form method="POST" action="epayment">
+    {% csrf_token %}
+
+      Patient Name:<input type="text"  name="pname" value="{{user}}">
+        Amount:<input type="text"  name="amount" value="{{t}}">
+
+</form>
+
+
+
+<h2>Payment </h2>
+
+    <form action="payment_status" method="POST">
+    {% csrf_token %}
+    <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_qalWvQlTe9mOve"
+    data-amount="{{amount}}"
+    data-currency="INR"
+    data-order_id="{{payment.id}}"
+    data-buttontext="Proceed payment"
+    data-name="DLRS"
+    data-description="Diagnostic Lab Reporting System"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="Gaurav Kumar"
+    data-prefill.email="{{user}}"
+    data-theme.color="#F37254"
+    ></script>
+     <input type="hidden" custom="Hidden Element" name="hidden">
+    </form>
+
+</html>
